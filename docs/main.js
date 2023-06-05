@@ -1,8 +1,3 @@
-// MapLibre GL JSの読み込み
-
-import maplibregl from 'maplibre-gl';
-import 'maplibre-gl@2.4.0/maplibre-gl.css';
-
 //地図1（地理院タイル 淡色地図）の設定
 var map = new maplibregl.Map({
 	container: 'map',
