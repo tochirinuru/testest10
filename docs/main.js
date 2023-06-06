@@ -2,10 +2,6 @@
 import maplibregl from 'maplibre-gl@2.4.0';
 import 'maplibre-gl@2.4.0/maplibre-gl.css';
 
-// OpacityControlプラグインの読み込み
-import OpacityControl from 'maplibre-gl-opacity';
-import 'node_modules/maplibre-gl-opacity/dist/maplibre-gl.css';
-
 // 地図1（地理院タイル 淡色地図）の設定
 var map = new maplibregl.Map({
 	container: 'map',
