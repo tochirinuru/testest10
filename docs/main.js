@@ -1,4 +1,12 @@
-//地図1（地理院タイル 淡色地図）の設定
+// MapLibre GL JSの読み込み
+import maplibregl from 'maplibre-gl';
+import 'mmaplibre-gl@2.4.0/maplibre-gl.css';
+
+// OpacityControlプラグインの読み込み
+import OpacityControl from 'maplibre-gl-opacity';
+import 'node_modules/maplibre-gl-opacity/dist/maplibre-gl.css';
+
+// 地図1（地理院タイル 淡色地図）の設定
 var map = new maplibregl.Map({
 	container: 'map',
 	style: {
@@ -28,15 +36,15 @@ var map = new maplibregl.Map({
 	zoom: 6
 });  
 
-//ポリゴンレイヤ設定
+// ポリゴンレイヤ設定
 map.on('load', function () {
-//GeoJSONファイルの読み込み
+// GeoJSONファイルの読み込み
 	map.addSource('Provinces_All_1889_C71', {
 		'type': 'geojson',
 		'data': './geofiles/Provinces_All_1889_C71.geojson',
 	});
 
-//ポリゴンレイヤのフィル表示設定
+// ポリゴンレイヤのフィル表示設定
 	map.addLayer({
 		'id': 'provinces_1889_fills',
 		'type': 'fill',
@@ -53,7 +61,7 @@ map.on('load', function () {
 		}
 	});
 
-//ポリゴンレイヤのライン表示設定
+// ポリゴンレイヤのライン表示設定
 	map.addLayer({
 		'id': 'provinces_1889_borders',
 		'type': 'line',
