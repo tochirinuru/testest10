@@ -1,5 +1,5 @@
 // MapLibre GL JSの読み込み
-import maplibregl from 'maplibre-gl';
+import maplibregl from 'maplibre-gl@2.4.0';
 import 'maplibre-gl@2.4.0/maplibre-gl.css';
 
 // OpacityControlプラグインの読み込み
