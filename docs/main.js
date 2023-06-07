@@ -69,11 +69,6 @@ map.on('load', function () {
 	});
 	map.addControl(Opacity, 'top-right');
 
-// NavigationControl
-	let nc = new maplibregl.NavigationControl();
-	map.addControl(nc, 'top-left');	});
-});  
-
 // ポリゴンレイヤ設定
 map.on('load', function () {
 // GeoJSONファイルの読み込み
