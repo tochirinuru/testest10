@@ -1,5 +1,5 @@
 // 地図1（地理院タイル 淡色地図）の設定
-var map = new maplibregl.Map({
+const map = new maplibregl.Map({
 	container: 'map',
 	style: {
 		version: 8,
