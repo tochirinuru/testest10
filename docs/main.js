@@ -1,6 +1,6 @@
 // moduleの読み込み
 import OpacityControl from 'maplibre-gl-opacity';
-import '/node_modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.css';
+import 'node_modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.css';
 
 // 地図1（地理院タイル 淡色地図）の設定
 const map = new maplibregl.Map({
@@ -56,23 +56,23 @@ map.on('load', function () {
 		osm: 'OpenStreetMap',
 	};
 
-	// オーバーマップの切り替え
-		const mapOverLayer = {
-			gsi_photo: '地理院地図 航空写真',
-		};
-	
-	// 透過制御
-		let Opacity = new OpacityControl({
-			baseLayers: mapBaseLayer,
-			overLayers: mapOverLayer,
-			opacityControl: true,
-		});
-		map.addControl(Opacity, 'top-right');
-	
-	// NavigationControl
-		let nc = new maplibregl.NavigationControl();
-		map.addControl(nc, 'top-left');	});
-	});  
+// オーバーマップの切り替え
+	const mapOverLayer = {
+		osm: '地理院地図 航空写真',
+	};
+
+// 透過制御
+	let Opacity = new OpacityControl({
+		baseLayers: mapBaseLayer,
+		overLayers: mapOverLayer,
+		opacityControl: true,
+	});
+	map.addControl(Opacity, 'top-right');
+
+// NavigationControl
+	let nc = new maplibregl.NavigationControl();
+	map.addControl(nc, 'top-left');	});
+});  
 
 // ポリゴンレイヤ設定
 map.on('load', function () {
