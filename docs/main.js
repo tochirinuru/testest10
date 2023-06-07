@@ -1,3 +1,6 @@
+// moduleの読み込み
+import OpacityControl from 'maplibre-gl-opacity';
+
 // 地図1（地理院タイル 淡色地図）の設定
 const map = new maplibregl.Map({
 	container: 'map',
