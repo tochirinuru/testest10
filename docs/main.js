@@ -1,5 +1,5 @@
 // モジュールの読み込み
-import './modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.css';
+import '/modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.css';
 import OpacityControl from 'maplibre-gl-opacity';
 
 // 地図1（地理院タイル 淡色地図）の設定
