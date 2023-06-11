@@ -26,8 +26,6 @@ const map = new maplibregl.Map({
 	},
 	center: [139.68786, 35.68355],
 	zoom: 6
-// URLへの経緯度およびズームレベルの表示
-	hash: true,
 });  
 
 // ポリゴンレイヤ設定
