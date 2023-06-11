@@ -33,12 +33,12 @@ map.on('load', function () {
 //GeoJSONファイルの読み込み
 	map.addSource('Provinces_All_1889_C71', {
 		'type': 'geojson',
-		'data': 'geofiles/Provinces_All_1889_C71.geojson',
+		'data': '/geofiles/Provinces_All_1889_C71.geojson',
 	});
 
 // ポリゴンレイヤのフィル表示設定
 	map.addLayer({
-		'id': 'provinces_1889_fills',
+		'id': 'Provinces_All_1889_C71',
 		'type': 'fill',
 		'source': 'Provinces_All_1889_C71',
 		'layout': {},
@@ -55,7 +55,7 @@ map.on('load', function () {
 
 // ポリゴンレイヤのライン表示設定
 	map.addLayer({
-		'id': 'provinces_1889_borders',
+		'id': 'Provinces_All_1889_C71',
 		'type': 'line',
 		'source': 'Provinces_All_1889_C71',
 		'layout': {},
@@ -66,7 +66,7 @@ map.on('load', function () {
 	});
 
 // ポリゴンレイヤのマウスクリック時の属性表示動作
-	map.on('click', 'provinces_1889_fills', function (e) {
+	map.on('click', 'Provinces_All_1889_C71', function (e) {
 		const coordinates = e.lngLat;
 // 属性設定
 		const description =
@@ -81,10 +81,10 @@ map.on('load', function () {
 			.addTo(map);
 	});
 // ポリゴンレイヤのマウスホバー/アウト時の表示動作
-	map.on('mouseenter', 'provinces_1889_fills', function () {
+	map.on('mouseenter', 'Provinces_All_1889_C71', function () {
 		map.getCanvas().style.cursor = 'pointer';
 	});
-	map.on('mouseleave', 'provinces_1889_fills', function () {
+	map.on('mouseleave', 'Provinces_All_1889_C71', function () {
 		map.getCanvas().style.cursor = '';
 	});	
 
