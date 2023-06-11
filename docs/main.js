@@ -102,7 +102,7 @@ map.addControl(new maplibregl.FullscreenControl());
 // 現在位置の表示
 map.addControl(new maplibregl.GeolocateControl({
 	positionOptions: {
-		enableHighAccuracy: false
+		enableHighAccuracy: true
 	},
 	fitBoundsOptions: {maxZoom: 6},
 	trackUserLocation: true,
