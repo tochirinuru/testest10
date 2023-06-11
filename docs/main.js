@@ -33,7 +33,7 @@ map.on('load', function () {
 //GeoJSONファイルの読み込み
 	map.addSource('Provinces_All_1889_C71', {
 		'type': 'geojson',
-		'data': '/geofiles/Provinces_All_1889_C71.geojson',
+		'data': 'geofiles/Provinces_All_1889_C71.geojson',
 	});
 
 // ポリゴンレイヤのフィル表示設定
