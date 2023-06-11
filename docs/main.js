@@ -26,6 +26,8 @@ const map = new maplibregl.Map({
 	},
 	center: [139.68786, 35.68355],
 	zoom: 6
+// URLへの経緯度およびズームレベルの表示
+	hash: true,
 });  
 
 // ポリゴンレイヤ設定
@@ -87,7 +89,6 @@ map.on('load', function () {
 	map.on('mouseleave', 'provinces_1889_fills', function () {
 		map.getCanvas().style.cursor = '';
 	});	
-
 });
 
 // スケールバーの表示
@@ -102,7 +103,7 @@ map.addControl(new maplibregl.FullscreenControl());
 // 現在位置の表示
 map.addControl(new maplibregl.GeolocateControl({
 	positionOptions: {
-		enableHighAccuracy: true
+		enableHighAccuracy: false
 	},
 	fitBoundsOptions: {maxZoom: 6},
 	trackUserLocation: true,
