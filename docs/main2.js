@@ -1,6 +1,6 @@
 // PMTilesの読み込み
-const protocol_pmtiles = new pmtiles.Protocol();
-maplibregl.addProtocol("pmtiles",protocol_pmtiles.tile);
+const protocol = new pmtiles.Protocol();
+maplibregl.addProtocol("pmtiles",protocol.tile);
 
 const map = new Map({
     container: 'map',
@@ -17,6 +17,7 @@ const map = new Map({
             {
                 id: 'water',
                 source: 'pmtiles',
+                'source-layer': 'Provinces_All_1889_C71',
                 type: 'fill',
                 paint: {
                     'fill-color': '#0000ff',
