@@ -1,4 +1,10 @@
- // 地図1（地理院タイル 淡色地図）の設定
+// PMTilesの読み込み
+const protocol_pmtiles = new pmtiles.Protocol();
+maplibregl.addProtocol("pmtiles",protocol_pmtiles.tile);
+
+let PMtiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
+
+// 地図1（地理院タイル 淡色地図）の設定
 const map = new maplibregl.Map({
 	container: 'map',
 	style: {
@@ -29,64 +35,51 @@ const map = new maplibregl.Map({
 });  
 
 // ポリゴンレイヤ設定
-map.on('load', function () {
-//GeoJSONファイルの読み込み
-	map.addSource('Provinces_All_1889_C71', {
-		'type': 'geojson',
-		'data': './geofiles/Provinces_All_1889_C71.geojson',
+map.on('load', () => {
+
+// PMTiles（ポリゴン）
+	map.addSource("pmtiles-jinko", {
+		type: "vector",
+		url: "pmtiles://" + PMtiles_URL,
+		attribution: 'attribution'
 	});
 
-// ポリゴンレイヤのフィル表示設定
+// PMTilesラインレイヤ
 	map.addLayer({
-		'id': 'provinces_1889_fills',
-		'type': 'fill',
-		'source': 'Provinces_All_1889_C71',
-		'layout': {},
+		"id": "jinko-line",
+		"type": "line",
+		"source": "pmtiles-jinko",
+		"source-layer": "Provinces_All_1889_C71",
+		minzoom: 12,
+		maxzoom: 16,
 		'paint': {
-			'fill-color': '#005AFF',
-			'fill-opacity': [
-				'case',
-				['boolean', ['feature-state', 'hover'], false],
-				0.5,
-				0.1
-			]
+		'line-color': '#005AFF',
+		'line-width': 1.5
 		}
 	});
 
-// ポリゴンレイヤのライン表示設定
+// PMTilesラベルレイヤ
 	map.addLayer({
-		'id': 'provinces_1889_borders',
-		'type': 'line',
-		'source': 'Provinces_All_1889_C71',
-		'layout': {},
+		'id': 'jinko_label',
+		'type': 'symbol',
+		'source': 'pmtiles-jinko-point',
+		"source-layer": "Provinces_All_1889_C71",
+		'minzoom': 12,
+		'maxzoom': 16,
+		'layout': {
+			'text-field': ['CODE', '\n', 'KUNI'],
+			'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+			'text-size': 11
+		},
 		'paint': {
-			'line-color': '#005AFF',
-			'line-width': 2
+			'text-color': '#005AFF',
+			'text-halo-color': '#FFFFFF',
+			'text-halo-width': 1.5
 		}
 	});
 
-// ポリゴンレイヤのマウスクリック時の属性表示動作
-	map.on('click', 'provinces_1889_fills', function (e) {
-		const coordinates = e.lngLat;
-// 属性設定
-		const description =
-			'コード: ' + e.features[0].properties.CODE + '<br>' +
-			'国名: ' + e.features[0].properties.KUNI;
-		while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-			coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-		}
-		new maplibregl.Popup()
-			.setLngLat(coordinates)
-			.setHTML(description)
-			.addTo(map);
-	});
-// ポリゴンレイヤのマウスホバー/アウト時の表示動作
-	map.on('mouseenter', 'provinces_1889_fills', function () {
-		map.getCanvas().style.cursor = 'pointer';
-	});
-	map.on('mouseleave', 'provinces_1889_fills', function () {
-		map.getCanvas().style.cursor = '';
-	});	
+	map.showTileBoundaries = false;
+
 });
 
 // スケールバーの表示
