@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "maplibre-gl-opacity": "^1.4.0"
+    "maplibre-gl-opacity": "^1.4.0",
+    "pmtiles": "^2.7.2"
   }
 }
