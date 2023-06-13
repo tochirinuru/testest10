@@ -2,7 +2,7 @@
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles",protocol.tile);
 
-const map = new Map({
+const map = new maplibregl.Map({
     container: 'map',
     style: {
         version: 8,
