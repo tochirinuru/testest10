@@ -1,6 +1,6 @@
 // PMTilesの読み込み
-const protocol_pmtiles = new pmtiles.Protocol();
-maplibregl.addProtocol("pmtiles",protocol_pmtiles.tile);
+const protocol = new pmtiles.Protocol();
+maplibregl.addProtocol("pmtiles",protocol.tile);
 
 let PMtiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
 
@@ -38,17 +38,17 @@ const map = new maplibregl.Map({
 map.on('load', () => {
 
 // PMTiles（ポリゴン）
-	map.addSource("pmtiles-jinko", {
-		type: "vector",
+	map.addSource("pmtiles1", {
+		type: "fill",
 		url: "pmtiles://" + PMtiles_URL,
 		attribution: 'attribution'
 	});
 
 // PMTilesラインレイヤ
 	map.addLayer({
-		"id": "jinko-line",
+		"id": "pmtiles_line",
 		"type": "line",
-		"source": "pmtiles-jinko",
+		"source": "pmtiles1",
 		"source-layer": "Provinces_All_1889_C71",
 		minzoom: 12,
 		maxzoom: 16,
@@ -60,9 +60,9 @@ map.on('load', () => {
 
 // PMTilesラベルレイヤ
 	map.addLayer({
-		'id': 'jinko_label',
+		'id': 'pmtiles_label',
 		'type': 'symbol',
-		'source': 'pmtiles-jinko-point',
+		'source': 'pmtiles1',
 		"source-layer": "Provinces_All_1889_C71",
 		'minzoom': 12,
 		'maxzoom': 16,
