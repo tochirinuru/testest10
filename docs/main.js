@@ -2,7 +2,7 @@
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles",protocol.tile);
 
-const PMtiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
+const PMTiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
 
 // 地図1（地理院タイル 淡色地図）の設定
 const map = new maplibregl.Map({
@@ -37,23 +37,41 @@ const map = new maplibregl.Map({
 // ポリゴンレイヤ設定
 map.on('load', () => {
 
-// PMTiles（ポリゴン）
+// PMTilesファイルの読み込み
 	map.addSource("pmtiles1", {
 		type: "vector",
-		url: "pmtiles://" + PMtiles_URL,
+		url: "pmtiles://" + PMTiles_URL,
 		attribution: 'attribution'
 	});
 
+// ポリゴンレイヤのフィル表示設定
 	map.addLayer({
-		"id": "pmitles-line",
+		"id": "pmtiles_fills",
+		"type": "fill",
+		"source": "pmtiles1",
+		"source-layer": "Provinces_All_1889_C71",
+		"paint": {
+			"fill-color": "#005AFF",
+			"fill-opacity": [
+				"case",
+				["boolean", ["feature-state", "hover"], false],
+				0.5,
+				0.1
+			]
+		}
+	});
+
+// ポリゴンレイヤのライン表示設定
+	map.addLayer({
+		"id": "pmitles_lines",
 		"type": "line",
 		"source": "pmtiles1",
 		"source-layer": "Provinces_All_1889_C71",
 		minzoom: 4,
 		maxzoom: 18,
-		'paint': {
-			'line-color': '#0000ff',
-			'line-width': 1.5
+		"paint": {
+			"line-color": "#005AFF",
+			"line-width": 2
 		}
 	});
 
