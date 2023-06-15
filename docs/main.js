@@ -25,8 +25,8 @@ const map = new maplibregl.Map({
 				id: 'gsi_pale',
 				type: 'raster',
 				source: 'gsi_pale',
-				minzoom: 12,
-				maxzoom: 16,
+				minzoom: 4,
+				maxzoom: 18,
 			}
 		]
 	},
@@ -49,8 +49,8 @@ map.on('load', () => {
 		"type": "line",
 		"source": "pmtiles1",
 		"source-layer": "Provinces_All_1889_C71",
-		minzoom: 12,
-		maxzoom: 16,
+		minzoom: 4,
+		maxzoom: 18,
 		'paint': {
 			'line-color': '#0000ff',
 			'line-width': 1.5
