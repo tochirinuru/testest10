@@ -43,9 +43,19 @@ map.on('load', () => {
 		url: "pmtiles://" + PMtiles_URL,
 		attribution: 'attribution'
 	});
+});
 
-	map.showTileBoundaries = false;
-
+map.addLayer({
+	"id": "pmitles-line",
+	"type": "line",
+	"source": "pmtiles1",
+	"source-layer": "Provinces_All_1889_C71",
+	minzoom: 12,
+	maxzoom: 16,
+	'paint': {
+		'line-color': '#0000ff',
+		'line-width': 1.5
+	}
 });
 
 // スケールバーの表示
