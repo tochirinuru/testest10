@@ -2,6 +2,8 @@
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles",protocol.tile);
 
+const PMTILES_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
+
 const map = new maplibregl.Map({
     container: 'map',
     style: {
@@ -9,7 +11,7 @@ const map = new maplibregl.Map({
         sources:{
             pmtiles: {
                 type:'vector',
-                url: 'pmtiles://https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles',
+                url: 'pmtiles://' + PMTILES_URL,
                 attribution: 'test'
             }
         },
