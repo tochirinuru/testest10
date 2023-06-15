@@ -2,7 +2,7 @@
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles",protocol.tile);
 
-let PMtiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
+const PMtiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
 
 // 地図1（地理院タイル 淡色地図）の設定
 const map = new maplibregl.Map({
@@ -42,40 +42,6 @@ map.on('load', () => {
 		type: "fill",
 		url: "pmtiles://" + PMtiles_URL,
 		attribution: 'attribution'
-	});
-
-// PMTilesラインレイヤ
-	map.addLayer({
-		"id": "pmtiles_line",
-		"type": "line",
-		"source": "pmtiles1",
-		"source-layer": "Provinces_All_1889_C71",
-		minzoom: 12,
-		maxzoom: 16,
-		'paint': {
-		'line-color': '#005AFF',
-		'line-width': 1.5
-		}
-	});
-
-// PMTilesラベルレイヤ
-	map.addLayer({
-		'id': 'pmtiles_label',
-		'type': 'symbol',
-		'source': 'pmtiles1',
-		"source-layer": "Provinces_All_1889_C71",
-		'minzoom': 12,
-		'maxzoom': 16,
-		'layout': {
-			'text-field': ['CODE', '\n', 'KUNI'],
-			'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-			'text-size': 11
-		},
-		'paint': {
-			'text-color': '#005AFF',
-			'text-halo-color': '#FFFFFF',
-			'text-halo-width': 1.5
-		}
 	});
 
 	map.showTileBoundaries = false;
