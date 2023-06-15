@@ -2,7 +2,7 @@
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol("pmtiles",protocol.tile);
 
-let PMtiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
+const PMtiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
 
 // 地図1（地理院タイル 淡色地図）の設定
 const map = new maplibregl.Map({
