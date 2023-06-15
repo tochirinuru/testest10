@@ -39,7 +39,7 @@ map.on('load', () => {
 
 // PMTiles（ポリゴン）
 	map.addSource("pmtiles1", {
-		type: "fill",
+		type: "vector",
 		url: "pmtiles://" + PMtiles_URL,
 		attribution: 'attribution'
 	});
