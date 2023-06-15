@@ -25,8 +25,8 @@ const map = new maplibregl.Map({
 				id: 'gsi_pale',
 				type: 'raster',
 				source: 'gsi_pale',
-				minzoom: 4,
-				maxzoom: 18,
+				minzoom: 12,
+				maxzoom: 16,
 			}
 		]
 	},
