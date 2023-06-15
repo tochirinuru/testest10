@@ -1,8 +1,8 @@
 // PMTilesの読み込み
 const protocol = new pmtiles.Protocol();
-maplibregl.addProtocol("pmtiles",protocol.tile);
+maplibregl.addProtocol('pmtiles',protocol.tile);
 
-const PMTiles_URL = "https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles";
+const PMTiles_URL = 'https://tochirinuru.github.io/testest10/geofiles/Provinces_All_1889_C71.pmtiles';
 
 // 地図1（地理院タイル 淡色地図）の設定
 const map = new maplibregl.Map({
@@ -17,7 +17,7 @@ const map = new maplibregl.Map({
 				],
 				tileSize: 256,
 				attribution:
-					"Produced by <a href='https://twitter.com/tochirinuru' target='_blank'>とちりぬる</a>. Map tiles by <a href='https://maps.gsi.go.jp/development/ichiran.html' target='_blank'>地理院タイル</a>",
+					'Produced by <a href="https://twitter.com/tochirinuru" target="_blank">とちりぬる</a>. Map tiles by <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>',
 			}
 		},
 		layers: [
@@ -38,23 +38,23 @@ const map = new maplibregl.Map({
 map.on('load', () => {
 
 // PMTilesファイルの読み込み
-	map.addSource("pmtiles1", {
-		type: "vector",
-		url: "pmtiles://" + PMTiles_URL,
+	map.addSource('pmtiles1', {
+		type: 'vector',
+		url: 'pmtiles://' + PMTiles_URL,
 		attribution: 'attribution'
 	});
 
 // ポリゴンレイヤのフィル表示設定
 	map.addLayer({
-		"id": "pmtiles_fills",
-		"type": "fill",
-		"source": "pmtiles1",
-		"source-layer": "Provinces_All_1889_C71",
-		"paint": {
-			"fill-color": "#005AFF",
-			"fill-opacity": [
-				"case",
-				["boolean", ["feature-state", "hover"], false],
+		'id': 'pmtiles_fills',
+		'type': 'fill',
+		'source': 'pmtiles1',
+		'source-layer': 'Provinces_All_1889_C71',
+		'paint': {
+			'fill-color': '#005AFF',
+			'fill-opacity': [
+				'case',
+				['boolean', ['feature-state', 'hover'], false],
 				0.5,
 				0.1
 			]
@@ -63,15 +63,15 @@ map.on('load', () => {
 
 // ポリゴンレイヤのライン表示設定
 	map.addLayer({
-		"id": "pmitles_lines",
-		"type": "line",
-		"source": "pmtiles1",
-		"source-layer": "Provinces_All_1889_C71",
+		'id': 'pmitles_lines',
+		'type': 'line',
+		'source': 'pmtiles1',
+		'source-layer': 'Provinces_All_1889_C71',
 		minzoom: 4,
 		maxzoom: 18,
-		"paint": {
-			"line-color": "#005AFF",
-			"line-width": 2
+		'paint': {
+			'line-color': '#005AFF',
+			'line-width': 2
 		}
 	});
 
