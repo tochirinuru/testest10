@@ -103,7 +103,7 @@ map.on('load', () => {
 					{ hover: false }
 				);
 			}
-			hoveredStateId = e.features[0].id;
+			hoveredStateId = e.features[0].properties['CODE'];
 			map.setFeatureState(
 				{ source: 'pmtiles1', code: hoveredStateId },
 				{ hover: true }
