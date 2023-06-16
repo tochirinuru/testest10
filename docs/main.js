@@ -34,6 +34,9 @@ const map = new maplibregl.Map({
 	zoom: 6
 });  
 
+// hoveredStateIdのリセット
+const hoveredStateId = null;
+
 // ポリゴンレイヤ設定
 map.on('load', () => {
 
@@ -55,8 +58,8 @@ map.on('load', () => {
 			'fill-opacity': [
 				'case',
 				['boolean', ['feature-state', 'hover'], false],
-				1,
-				0.5
+				0.5,
+				0.1
 			]
 		}
 	});
