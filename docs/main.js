@@ -92,7 +92,7 @@ map.on('load', () => {
 	});
 
 // ポリゴンレイヤのマウスホバー時の表示動作
-	map.on('mousemove', 'pmtiles_fills', function (e) {
+	map.on('mousemove', 'pmtiles_fills', (e) => {
 		if (e.features.length > 0) {
 			if (hoveredStateId) {
 				map.setFeatureState(
@@ -109,7 +109,7 @@ map.on('load', () => {
 	});
 
 // ポリゴンレイヤのマウスアウト時の表示動作
-	map.on('mouseleave', 'pmtiles_fills', function () {
+	map.on('mouseleave', 'pmtiles_fills', () => {
 		if (hoveredStateId) {
 			map.setFeatureState(
 				{ source: 'pmtiles1', id: hoveredStateId },
