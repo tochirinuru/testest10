@@ -74,7 +74,7 @@ map.on('load', () => {
 			'line-width': 2
 		}
 	});
-
+/*
 // ポリゴンレイヤのマウスクリック時の属性表示動作
 	map.on('click', 'pmtiles_fills', (e) => {
 
@@ -90,7 +90,7 @@ map.on('load', () => {
 			)
 			.addTo(map);
 	});
-
+*/
 // ポリゴンレイヤのマウスホバー時の表示動作
 	map.on('mousemove', 'pmtiles_fills', (e) => {
 		if (e.features.length > 0) {
