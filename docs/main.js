@@ -89,7 +89,34 @@ map.on('load', () => {
 				+ '国名: ' + name
 			)
 			.addTo(map);
+	});
 
+// ポリゴンレイヤのマウスホバー時の表示動作
+	map.on('mousemove', 'pmtiles_fills', function (e) {
+		if (e.features.length > 0) {
+			if (hoveredStateId) {
+				map.setFeatureState(
+					{ source: 'pmtiles1', id: hoveredStateId },
+					{ hover: false }
+				);
+			}
+			hoveredStateId = e.features[0].id;
+			map.setFeatureState(
+				{ source: 'pmtiles1', id: hoveredStateId },
+				{ hover: true }
+			);
+		}
+	});
+
+// ポリゴンレイヤのマウスアウト時の表示動作
+	map.on('mouseleave', 'pmtiles_fills', function () {
+		if (hoveredStateId) {
+			map.setFeatureState(
+				{ source: 'pmtiles1', id: hoveredStateId },
+				{ hover: false }
+			);
+		}
+		hoveredStateId = null;
 	});
 
 // タイル境界の非表示
