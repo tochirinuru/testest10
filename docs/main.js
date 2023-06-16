@@ -75,7 +75,7 @@ map.on('load', () => {
 		}
 	});
 
-// ポリゴンレイヤのマウスクリック時の属性表示動作
+/*// ポリゴンレイヤのマウスクリック時の属性表示動作
 	map.on('click', 'pmtiles_fills', (e) => {
 		const lng = e.lngLat.lng;
 		const lat = e.lngLat.lat;
@@ -92,7 +92,7 @@ map.on('load', () => {
 			)
 			.addTo(map);
 	});
-	
+*/	
 // タイル境界の非表示
 	map.showTileBoundaries = false;
 
