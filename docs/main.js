@@ -75,14 +75,14 @@ map.on('load', () => {
 		}
 	});
 
-/*// ポリゴンレイヤのマウスクリック時の属性表示動作
+// ポリゴンレイヤのマウスクリック時の属性表示動作
 	map.on('click', 'pmtiles_fills', (e) => {
-		const lng = e.lngLat.lng;
-		const lat = e.lngLat.lat;
+		var lng = e.lngLat.lng;
+		var lat = e.lngLat.lat;
 
 // 属性設定
-		const code = e.features[0].properties.['CODE'];
-		const name = e.features[0].properties.['KUNI'];
+		var code = e.features[0].properties.['CODE'];
+		var name = e.features[0].properties.['KUNI'];
 
 		new maplibregl.Popup()
 			.setLngLat(e.lngLat)
@@ -91,18 +91,18 @@ map.on('load', () => {
 				+ '国名: ' + name
 			)
 			.addTo(map);
-	});
-*/	
-
+/*
 // ポリゴンレイヤのマウスクリック時の属性表示動作
-	const feature = features[0];
-	const popup = new maplibregl.Popup()
-		.setLngLat(feature.geometry.coordinates)
-		.setHTML(
-			'番号: ' + code + '<br>'
-			+ '国名: ' + name
-		)
-		.addTo(map);
+		const feature = features[0];
+		const popup = new maplibregl.Popup()
+			.setLngLat(feature.geometry.coordinates)
+			.setHTML(
+				'番号: ' + code + '<br>'
+				+ '国名: ' + name
+			)
+			.addTo(map);
+*/
+	});
 
 // タイル境界の非表示
 	map.showTileBoundaries = false;
