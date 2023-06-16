@@ -84,7 +84,7 @@ map.on('load', function () {
 		'minzoom': 4,
 		'maxzoom': 18,
 		'layout': {
-			'text-field': ['name'],
+			'text-field': ['concat', ['get', 'name']],
 			'text-font': ['BIZ UDPGothic'],
 			'text-size': 12
 		},
