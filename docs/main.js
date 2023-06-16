@@ -52,7 +52,6 @@ map.on('load', function () {
 		'id': 'pmtiles_fills',
 		'type': 'fill',
 		'source': 'pmtiles1',
-		'layout': {}
 		'source-layer': 'Provinces_All_1889_C71',
 		'paint': {
 			'fill-color': '#005AFF',
@@ -70,7 +69,6 @@ map.on('load', function () {
 		'id': 'pmitles_lines',
 		'type': 'line',
 		'source': 'pmtiles1',
-		'layout': {}
 		'source-layer': 'Provinces_All_1889_C71',
 		minzoom: 4,
 		maxzoom: 18,
