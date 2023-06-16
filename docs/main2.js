@@ -1,4 +1,5 @@
 // maplibre-gl-opacityプラグインの読み込み
+import 'https://tochirinuru.github.io/testest10/modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.css';
 import OpacityControl from 'maplibre-gl-opacity';
 
 // PMTilesの読み込み
