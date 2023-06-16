@@ -75,16 +75,16 @@ map.on('load', function () {
 		}
 	});
 
-// 夜間人口（町丁・字等別）ラベルレイヤ
+// ポリゴンレイヤのラベル表示設定
 	map.addLayer({
 		'id': 'pmitles_labels',
 		'type': 'symbol',
 		'source': 'pmtiles1',
 		'source-layer': 'Provinces_All_1889_C71',
-		'minzoom': 12,
-		'maxzoom': 16,
+		'minzoom': 4,
+		'maxzoom': 18,
 		'layout': {
-			'text-field': ['concat', ['get', 'name']],
+			'text-field': ['name'],
 			'text-font': ['BIZ UDPGothic'],
 			'text-size': 12
 		},
