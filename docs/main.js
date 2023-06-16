@@ -93,6 +93,17 @@ map.on('load', () => {
 			.addTo(map);
 	});
 */	
+
+// ポリゴンレイヤのマウスクリック時の属性表示動作
+	const feature = features[0];
+	const popup = new maplibregl.Popup()
+		.setLngLat(feature.geometry.coordinates)
+		.setHTML(
+			'番号: ' + code + '<br>'
+			+ '国名: ' + name
+		)
+		.addTo(map);
+
 // タイル境界の非表示
 	map.showTileBoundaries = false;
 
