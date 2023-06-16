@@ -82,7 +82,7 @@ map.on('load', () => {
 	map.on('click', 'pmtiles_fills', (e) => {
 
 // 属性設定
-		const code = e.features[0].properties['CODE'];
+		const id = e.features[0].properties['CODE'];
 		const name = e.features[0].properties['KUNI'];
 
 		new maplibregl.Popup()
