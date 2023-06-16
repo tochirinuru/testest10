@@ -77,6 +77,8 @@ map.on('load', () => {
 
 // ポリゴンレイヤのマウスクリック時の属性表示動作
 	map.on('click', 'pmtiles_fills', (e) => {
+		const lng = e.lngLat.lng;
+		const lat = e.lngLat.lat;
 
 // 属性設定
 		const code = e.features[0].properties.['CODE'];
@@ -86,7 +88,7 @@ map.on('load', () => {
 			.setLngLat(e.lngLat)
 			.setHTML(
 				'番号: ' + code + '<br>'
-				'国名: ' + name
+				+ '国名: ' + name
 			)
 			.addTo(map);
 	});
