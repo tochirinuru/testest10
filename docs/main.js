@@ -94,6 +94,16 @@ map.on('load', () => {
 			.addTo(map);
 	});
 
+// マウスホバー時のマウスカーソルの変更
+	map.on('mouseenter', 'places', function () {
+		map.getCanvas().style.cursor = 'pointer';
+	});
+
+// マウスアウト時のマウスカーソルの変更
+	map.on('mouseleave', 'places', function () {
+		map.getCanvas().style.cursor = '';
+	});
+
 // ポリゴンレイヤのマウスホバー時の表示動作
 	map.on('mousemove', 'pmtiles_fills', function (e) {
 		if (e.features.length > 0) {
