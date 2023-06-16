@@ -99,13 +99,13 @@ map.on('load', () => {
 		if (e.features.length > 0) {
 			if (hoveredStateId) {
 				map.setFeatureState(
-					{ source: 'pmtiles1', code: hoveredStateId },
+					{ source: 'pmtiles1', id: hoveredStateId },
 					{ hover: false }
 				);
 			}
 			hoveredStateId = e.features[0].properties['CODE'];
 			map.setFeatureState(
-				{ source: 'pmtiles1', code: hoveredStateId },
+				{ source: 'pmtiles1', id: hoveredStateId },
 				{ hover: true }
 			);
 		}
@@ -115,7 +115,7 @@ map.on('load', () => {
 	map.on('mouseleave', 'pmtiles_fills', () => {
 		if (hoveredStateId) {
 			map.setFeatureState(
-				{ source: 'pmtiles1', code: hoveredStateId },
+				{ source: 'pmtiles1', id: hoveredStateId },
 				{ hover: false }
 			);
 		}
