@@ -75,6 +75,26 @@ map.on('load', function () {
 		}
 	});
 
+// 夜間人口（町丁・字等別）ラベルレイヤ
+	map.addLayer({
+		'id': 'pmitles_labels',
+		'type': 'symbol',
+		'source': 'pmtiles1',
+		'source-layer': 'Provinces_All_1889_C71',
+		'minzoom': 12,
+		'maxzoom': 16,
+		'layout': {
+			'text-field': ['concat', ['get', 'name']],
+			'text-font': ['BIZ UDPGothic'],
+			'text-size': 12
+		},
+		'paint': {
+			'text-color': '#005AFF',
+			'text-halo-color': '#FFFFFF',
+			'text-halo-width': 1.5
+		}
+	});
+
 // ポリゴンレイヤのマウスクリック時の属性表示動作
 	map.on('click', 'pmtiles_fills', function (e) {
 
