@@ -75,6 +75,23 @@ map.on('load', () => {
 		}
 	});
 
+// ポリゴンレイヤのマウスクリック時の属性表示動作
+	map.on('click', 'pmtiles_fills', (e) => {
+
+// 属性設定
+		const code = e.features[0].properties.['CODE'];
+		const name = e.features[0].properties.['KUNE'];
+
+		new maplibregl.Popup()
+			.setLngLat(e.lngLat)
+			.setHTML(
+				'番号: ' + code + '<br>'
+				'国名: ' + name
+			)
+			.addTo(map);
+	});
+	
+// タイル境界の非表示
 	map.showTileBoundaries = false;
 
 });
