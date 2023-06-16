@@ -82,7 +82,7 @@ map.on('load', () => {
 
 // 属性設定
 		const code = e.features[0].properties.['CODE'];
-		const name = e.features[0].properties.['KUNE'];
+		const name = e.features[0].properties.['KUNI'];
 
 		new maplibregl.Popup()
 			.setLngLat(e.lngLat)
