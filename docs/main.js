@@ -35,10 +35,10 @@ const map = new maplibregl.Map({
 });  
 
 // hoveredStateIdのリセット
-const hoveredStateId = null;
+var hoveredStateId = null;
 
 // ポリゴンレイヤ設定
-map.on('load', () => {
+map.on('load', function () {
 
 // PMTilesファイルの読み込み
 	map.addSource('pmtiles1', {
@@ -52,6 +52,7 @@ map.on('load', () => {
 		'id': 'pmtiles_fills',
 		'type': 'fill',
 		'source': 'pmtiles1',
+		'layout': {}
 		'source-layer': 'Provinces_All_1889_C71',
 		'paint': {
 			'fill-color': '#005AFF',
@@ -69,6 +70,7 @@ map.on('load', () => {
 		'id': 'pmitles_lines',
 		'type': 'line',
 		'source': 'pmtiles1',
+		'layout': {}
 		'source-layer': 'Provinces_All_1889_C71',
 		minzoom: 4,
 		maxzoom: 18,
@@ -79,7 +81,7 @@ map.on('load', () => {
 	});
 
 // ポリゴンレイヤのマウスクリック時の属性表示動作
-	map.on('click', 'pmtiles_fills', (e) => {
+	map.on('click', 'pmtiles_fills', function (e) {
 
 // 属性設定
 		const id = e.features[0].properties['id'];
