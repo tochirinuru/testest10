@@ -55,8 +55,8 @@ map.on('load', () => {
 			'fill-opacity': [
 				'case',
 				['boolean', ['feature-state', 'hover'], false],
-				0.5,
-				0.1
+				1,
+				0.5
 			]
 		}
 	});
