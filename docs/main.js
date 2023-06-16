@@ -34,9 +34,6 @@ const map = new maplibregl.Map({
 	zoom: 6
 });  
 
-// hoveredStateIdのリセット
-var hoveredStateId = null;
-
 // ポリゴンレイヤ設定
 map.on('load', function () {
 
@@ -94,43 +91,11 @@ map.on('load', function () {
 			.addTo(map);
 	});
 
-// マウスホバー時のマウスカーソルの変更
-	map.on('mouseenter', 'places', function () {
-		map.getCanvas().style.cursor = 'pointer';
-	});
-
-// マウスアウト時のマウスカーソルの変更
-	map.on('mouseleave', 'places', function () {
-		map.getCanvas().style.cursor = '';
-	});
-
-// ポリゴンレイヤのマウスホバー時の表示動作
-	map.on('mousemove', 'pmtiles_fills', function (e) {
-		if (e.features.length > 0) {
-			if (hoveredStateId) {
-				map.setFeatureState(
-					{ source: 'pmtiles1', id: hoveredStateId },
-					{ hover: false }
-				);
-			}
-			hoveredStateId = e.features[0].id;
-			map.setFeatureState(
-				{ source: 'pmtiles1', id: hoveredStateId },
-				{ hover: true }
-			);
-		}
-	});
-
-// ポリゴンレイヤのマウスアウト時の表示動作
-	map.on('mouseleave', 'pmtiles_fills', function () {
-		if (hoveredStateId) {
-			map.setFeatureState(
-				{ source: 'pmtiles1', id: hoveredStateId },
-				{ hover: false }
-			);
-		}
-		hoveredStateId = null;
-	});
+	map.setLayoutProperty('label_country', 'text-field', [
+		'format',
+		['get', 'name'],
+		{ 'font-scale': 1.2 },
+	]);
 
 // タイル境界の非表示
 	map.showTileBoundaries = false;
