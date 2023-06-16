@@ -5,3 +5,8 @@
 	right:0;
 	bottom:0;
 }
+
+.maplibregl-popup {
+fon-familyt: "BIZ UDGothic";
+font-size: 12px;
+}
