@@ -82,7 +82,7 @@ map.on('load', () => {
 	map.on('click', 'pmtiles_fills', (e) => {
 
 // 属性設定
-		const id = e.features[0].properties['CODE'];
+		const code = e.features[0].properties['CODE'];
 		const name = e.features[0].properties['KUNI'];
 
 		new maplibregl.Popup()
@@ -99,13 +99,13 @@ map.on('load', () => {
 		if (e.features.length > 0) {
 			if (hoveredStateId) {
 				map.setFeatureState(
-					{ source: 'pmtiles1', id: hoveredStateId },
+					{ source: 'pmtiles1', code: hoveredStateId },
 					{ hover: false }
 				);
 			}
 			hoveredStateId = e.features[0].id;
 			map.setFeatureState(
-				{ source: 'pmtiles1', id: hoveredStateId },
+				{ source: 'pmtiles1', code: hoveredStateId },
 				{ hover: true }
 			);
 		}
@@ -115,7 +115,7 @@ map.on('load', () => {
 	map.on('mouseleave', 'pmtiles_fills', () => {
 		if (hoveredStateId) {
 			map.setFeatureState(
-				{ source: 'pmtiles1', id: hoveredStateId },
+				{ source: 'pmtiles1', code: hoveredStateId },
 				{ hover: false }
 			);
 		}
