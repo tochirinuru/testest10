@@ -77,23 +77,23 @@ map.on('load', () => {
 			'line-width': 2
 		}
 	});
-/*
+
 // ポリゴンレイヤのマウスクリック時の属性表示動作
 	map.on('click', 'pmtiles_fills', (e) => {
 
 // 属性設定
-		const code = e.features[0].properties['CODE'];
-		const name = e.features[0].properties['KUNI'];
+		const id = e.features[0].properties['id'];
+		const name = e.features[0].properties['name'];
 
 		new maplibregl.Popup()
 			.setLngLat(e.lngLat)
 			.setHTML(
-				'番号: ' + code + '<br>'
+				'番号: ' + id + '<br>'
 				+ '国名: ' + name
 			)
 			.addTo(map);
 	});
-*/
+
 // ポリゴンレイヤのマウスホバー時の表示動作
 	map.on('mousemove', 'pmtiles_fills', function (e) {
 		if (e.features.length > 0) {
