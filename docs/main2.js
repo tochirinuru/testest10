@@ -1,3 +1,5 @@
+import OpacityControl from 'maplibre-gl-opacity';
+
 // PMTilesの読み込み
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol('pmtiles',protocol.tile);
