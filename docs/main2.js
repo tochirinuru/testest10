@@ -1,7 +1,3 @@
-// maplibre-gl-opacityプラグインの読み込み
-import OpacityControl from 'maplibre-gl-opacity';
-import 'https://tochirinuru.github.io/testest10/modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.css';
-
 // PMTilesの読み込み
 const protocol = new pmtiles.Protocol();
 maplibregl.addProtocol('pmtiles',protocol.tile);
