@@ -35,8 +35,43 @@ const map = new maplibregl.Map({
 	zoom: 6
 });  
 
-// ポリゴンレイヤ設定
+// レイヤ設定
 map.on('load', function () {
+
+// OpenStreetMap
+	map.addSource('o_std', {
+		type: 'raster',
+		tiles: [
+			'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
+			'https://b.tile.openstreetmap.org/{z}/{x}/{y}.png',
+		],
+		tileSize: 256,
+	});
+	map.addLayer({
+		id: 'o_std',
+		type: 'raster',
+		source: 'o_std',
+		minzoom: 0,
+		maxzoom: 18,
+	});
+
+// ベースレイヤ
+	const mapBaseLayer = {
+		gsi_pale: '地理院地図',
+	};
+
+// オーバレイヤ
+	const mapOverLayer = {
+		o_std: 'OpenStreetMap',
+	};
+
+// OpacityControl
+	let Opacity = new OpacityControl({
+		baseLayers: mapBaseLayer,
+		overLayers: mapOverLayer,
+		opacityControl: true,
+	});
+	map.addControl(Opacity, 'top-right');
 
 // PMTilesファイルの読み込み
 	map.addSource('pmtiles1', {
