@@ -55,24 +55,6 @@ map.on('load', function () {
 		maxzoom: 18,
 	});
 
-// ベースレイヤ
-	const mapBaseLayer = {
-		gsi_pale: '地理院地図',
-	};
-
-// オーバレイヤ
-	const mapOverLayer = {
-		o_std: 'OpenStreetMap',
-	};
-
-// OpacityControl
-	let Opacity = new OpacityControl({
-		baseLayers: mapBaseLayer,
-		overLayers: mapOverLayer,
-		opacityControl: true,
-	});
-	map.addControl(Opacity, 'top-right');
-
 // PMTilesファイルの読み込み
 	map.addSource('pmtiles1', {
 		type: 'vector',
@@ -152,6 +134,26 @@ map.on('load', function () {
 		['get', 'name'],
 		{ 'font-scale': 1.2 },
 	]);
+
+// ベースレイヤ
+	const mapBaseLayer = {
+		gsi_pale: '地理院地図',
+		o_std: 'OpenStreetMap',
+	};
+
+// オーバレイヤ
+	const mapOverLayer = {
+		pmtiles_fills: 'a',
+		pmtiles_lines: 'b',
+	};
+
+// OpacityControl
+	let Opacity = new OpacityControl({
+		baseLayers: mapBaseLayer,
+		overLayers: mapOverLayer,
+		opacityControl: true,
+	});
+	map.addControl(Opacity, 'top-right');
 
 // タイル境界の非表示
 	map.showTileBoundaries = false;
