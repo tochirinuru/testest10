@@ -153,7 +153,7 @@ map.on('load', function () {
 		overLayers: mapOverLayer,
 		opacityControl: true,
 	});
-	map.addControl(Opacity, 'top-right');
+	map.addControl(Opacity, 'top-left');
 
 // タイル境界の非表示
 	map.showTileBoundaries = false;
