@@ -59,7 +59,7 @@ map.on('load', function () {
 
 // ポリゴンレイヤのライン表示設定
 	map.addLayer({
-		'id': 'pmitles_lines',
+		'id': 'pmtiles_lines',
 		'type': 'line',
 		'source': 'pmtiles1',
 		'source-layer': 'Provinces_All_1889_C71',
@@ -68,26 +68,6 @@ map.on('load', function () {
 		'paint': {
 			'line-color': '#005AFF',
 			'line-width': 2
-		}
-	});
-
-// ポリゴンレイヤのラベル表示設定
-	map.addLayer({
-		'id': 'pmitles_labels',
-		'type': 'symbol',
-		'source': 'pmtiles1',
-		'source-layer': 'Provinces_All_1889_C71',
-		'minzoom': 4,
-		'maxzoom': 18,
-		'layout': {
-			'text-field': ['concat', ['get', 'name']],
-			'text-font': ['BIZ UDPGothic', 'BIZ UDPGothic'],
-			'text-size': 12
-		},
-		'paint': {
-			'text-color': '#005AFF',
-			'text-halo-color': '#FFFFFF',
-			'text-halo-width': 1.5
 		}
 	});
 
@@ -106,12 +86,6 @@ map.on('load', function () {
 			)
 			.addTo(map);
 	});
-
-	map.setLayoutProperty('label_country', 'text-field', [
-		'format',
-		['get', 'name'],
-		{ 'font-scale': 1.2 },
-	]);
 
 // タイル境界の非表示
 	map.showTileBoundaries = false;
