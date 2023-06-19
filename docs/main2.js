@@ -1,3 +1,4 @@
+// maplibre-gl-opacityの読み込み
 import OpacityControl from 'https://tochirinuru.github.io/testest10/modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.js';
 
 // PMTilesの読み込み
@@ -72,12 +73,7 @@ map.on('load', function () {
 		'source-layer': 'Provinces_All_1889_C71',
 		'paint': {
 			'fill-color': '#005AFF',
-			'fill-opacity': [
-				'case',
-				['boolean', ['feature-state', 'hover'], false],
-				0.5,
-				0.1
-			]
+			'fill-opacity': 0.1
 		}
 	});
 
