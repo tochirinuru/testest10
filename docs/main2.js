@@ -1,4 +1,4 @@
-import OpacityControl from 'https://tochirinuru.github.io/testest10/docs/modules/maplibre-gl-opacity/dist/maplibre-gl-opacity';
+import OpacityControl from 'https://tochirinuru.github.io/testest10/modules/maplibre-gl-opacity/dist/maplibre-gl-opacity.js';
 
 // PMTilesの読み込み
 const protocol = new pmtiles.Protocol();
